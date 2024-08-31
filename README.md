@@ -343,12 +343,12 @@ Description:
 ### <a name="output_resource"></a> [resource](#output\_resource)
 
 Description:   
-  This is the full output for the Monitor Pprivate Link Scope resource.
+  This is the full output for the Monitor Private Link Scope resource.
 
 ### <a name="output_resource_id"></a> [resource\_id](#output\_resource\_id)
 
 Description:   
-  This is the full output for the Monitor Pprivate Link Scope resource ID.
+  This is the full output for the Monitor Private Link Scope resource ID.
 
 ## Modules
 
