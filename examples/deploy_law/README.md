@@ -17,7 +17,7 @@ terraform {
   required_providers {
     azurerm = {
       source  = "hashicorp/azurerm"
-      version = ">= 3.71.0, < 4.0.0"
+      version = ">= 4.0.0, < 5.0.0"
     }
     random = {
       source  = "hashicorp/random"
@@ -37,7 +37,7 @@ provider "azurerm" {
 # This ensures we have unique CAF compliant names for our resources.
 module "naming" {
   source  = "Azure/naming/azurerm"
-  version = "0.3.0"
+  version = "0.4.2"
 }
 
 # This picks a random region from the list of regions.
@@ -54,7 +54,7 @@ resource "azurerm_resource_group" "this" {
 
 module "vnet" {
   source              = "Azure/avm-res-network-virtualnetwork/azurerm"
-  version             = "~> 0.2.3"
+  version             = "~> 0.8.1"
   name                = module.naming.virtual_network.name_unique
   resource_group_name = azurerm_resource_group.this.name
   location            = azurerm_resource_group.this.location
@@ -69,7 +69,7 @@ module "vnet" {
 
 module "privatednszone" {
   source   = "Azure/avm-res-network-privatednszone/azurerm"
-  version  = "~> 0.1.2"
+  version  = "~> 0.3.3"
   for_each = local.privatednszone
 
   domain_name         = each.key
@@ -84,7 +84,7 @@ module "privatednszone" {
 
 module "law" {
   source  = "Azure/avm-res-operationalinsights-workspace/azurerm"
-  version = "0.3.5"
+  version = "0.4.2"
 
   enable_telemetry                                      = var.enable_telemetry
   location                                              = azurerm_resource_group.this.location
@@ -143,7 +143,7 @@ The following requirements are needed by this module:
 
 - <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) (>= 1.3.0)
 
-- <a name="requirement_azurerm"></a> [azurerm](#requirement\_azurerm) (>= 3.71.0, < 4.0.0)
+- <a name="requirement_azurerm"></a> [azurerm](#requirement\_azurerm) (>= 4.0.0, < 5.0.0)
 
 - <a name="requirement_random"></a> [random](#requirement\_random) (>= 3.5.0, < 4.0.0)
 
@@ -191,25 +191,25 @@ Version:
 
 Source: Azure/avm-res-operationalinsights-workspace/azurerm
 
-Version: 0.3.5
+Version: 0.4.2
 
 ### <a name="module_naming"></a> [naming](#module\_naming)
 
 Source: Azure/naming/azurerm
 
-Version: 0.3.0
+Version: 0.4.2
 
 ### <a name="module_privatednszone"></a> [privatednszone](#module\_privatednszone)
 
 Source: Azure/avm-res-network-privatednszone/azurerm
 
-Version: ~> 0.1.2
+Version: ~> 0.3.3
 
 ### <a name="module_vnet"></a> [vnet](#module\_vnet)
 
 Source: Azure/avm-res-network-virtualnetwork/azurerm
 
-Version: ~> 0.2.3
+Version: ~> 0.8.1
 
 <!-- markdownlint-disable-next-line MD041 -->
 ## Data Collection

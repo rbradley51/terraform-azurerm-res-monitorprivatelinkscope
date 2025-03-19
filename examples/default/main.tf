@@ -3,11 +3,11 @@ terraform {
   required_providers {
     azurerm = {
       source  = "hashicorp/azurerm"
-      version = ">= 3.71.0, < 4.0.0"
+      version = ">= 4.0.0, < 5.0.0"
     }
     random = {
       source  = "hashicorp/random"
-      version = ">= 3.5.0, < 4.0.0"
+      version = ">= 3.5.0, < 5.0.0"
     }
   }
 }
@@ -23,7 +23,7 @@ provider "azurerm" {
 # This ensures we have unique CAF compliant names for our resources.
 module "naming" {
   source  = "Azure/naming/azurerm"
-  version = "0.3.0"
+  version = "0.4.2"
 }
 
 # This picks a random region from the list of regions.
@@ -40,7 +40,7 @@ resource "azurerm_resource_group" "this" {
 
 module "vnet" {
   source              = "Azure/avm-res-network-virtualnetwork/azurerm"
-  version             = "~> 0.2.3"
+  version             = "~> 0.8.1"
   name                = module.naming.virtual_network.name_unique
   resource_group_name = azurerm_resource_group.this.name
   location            = azurerm_resource_group.this.location
@@ -55,7 +55,7 @@ module "vnet" {
 
 module "privatednszone" {
   source  = "Azure/avm-res-network-privatednszone/azurerm"
-  version = "~> 0.1.2"
+  version = "~> 0.3.3"
 
   domain_name         = "privatelink.monitor.azure.com"
   resource_group_name = azurerm_resource_group.this.name
