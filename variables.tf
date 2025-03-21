@@ -1,10 +1,3 @@
-variable "location" {
-  type        = string
-  description = "Azure region where the resource should be deployed."
-  default = "global"
-  nullable    = false
-}
-
 variable "name" {
   type        = string
   description = "The name of the Monitor Private Link Scope."
@@ -98,6 +91,13 @@ This variable controls whether or not telemetry is enabled for the module.
 For more information see <https://aka.ms/avm/telemetryinfo>.
 If it is set to false, then no telemetry will be collected.
 DESCRIPTION
+  nullable    = false
+}
+
+variable "location" {
+  type        = string
+  default     = "global"
+  description = "Azure region where the resource should be deployed."
   nullable    = false
 }
 
