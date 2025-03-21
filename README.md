@@ -160,7 +160,7 @@ Description: Azure region where the resource should be deployed.
 
 Type: `string`
 
-Default: `"global"`
+Default: `""`
 
 ### <a name="input_lock"></a> [lock](#input\_lock)
 

@@ -94,9 +94,10 @@ DESCRIPTION
   nullable    = false
 }
 
+# tflint-ignore: all
 variable "location" {
   type        = string
-  default     = "global"
+  default     = ""
   description = "Azure region where the resource should be deployed."
   nullable    = false
 }

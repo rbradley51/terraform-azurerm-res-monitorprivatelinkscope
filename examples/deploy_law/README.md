@@ -108,7 +108,6 @@ module "ampls" {
   enable_telemetry = var.enable_telemetry
 
   name                = "law-pl-service"
-  location            = azurerm_resource_group.this.location
   resource_group_name = azurerm_resource_group.this.name
 
   private_endpoints = {
